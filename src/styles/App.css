@@ -1,0 +1,58 @@
+body {
+  font-family: system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+  background-color: #eeebe5;
+
+  box-sizing: border-box;
+
+}
+
+header {
+    padding: 30px;
+    background: #4a4a54;
+    height: 40px;
+
+}
+
+.sidenav {
+    background: #4a4a54;
+    height: 95vh;
+    width: 200px;
+    padding: 0 30px;
+    position: fixed;
+    z-index: 1300;
+    transition: all 0.75s ease;
+    transform: translateY(0%);
+}
+
+.sidenav.active { transform: translateY(100%);}
+
+ul {padding: 0;}
+
+ul li {
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+ul li a:hover, ul li a.active {
+    background: #172b4d;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #34343b;
+}

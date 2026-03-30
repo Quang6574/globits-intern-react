@@ -1,0 +1,19 @@
+table {
+    /*border="1" cellPadding="8" style={{ marginTop: 12, width: '100%' }*/
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 12px;
+    width: 100%;
+    background: #fff;
+}
+
+th,
+td {
+  border: 1px solid #222;
+  padding: 8px;
+  text-align: left;
+}
+
+thead th {
+  background: #f3f3f3;
+}
