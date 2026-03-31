@@ -4,7 +4,6 @@ import CountryService from '../services/CountryService';
 class CountryStore {
     countries = [];
     editingId = null;
-    editForm = { name: '', code: '', description: '' };
 
     constructor() {
         makeAutoObservable(this, {}, { autoBind: true });
@@ -35,30 +34,20 @@ class CountryStore {
 
     startEdit(row) {
         this.editingId = row.id;
-        this.editForm = {
-        name: row.name ?? '',
-        code: row.code ?? '',
-        description: row.description ?? '',
-        };
-    }
-
-    changeEditField(field, value) {
-        this.editForm = { ...this.editForm, [field]: value };
     }
 
     cancelEdit() {
         this.editingId = null;
-        this.editForm = { name: '', code: '', description: '' };
     }
 
-    async saveEdit() {
+    async saveEdit(updatedCountry) {
         if (!this.editingId) return;
-        if (!this.editForm.name || !this.editForm.code) return;
+        if (!updatedCountry?.name || !updatedCountry?.code) return;
 
         try {
             const response = await CountryService.createOrUpdate({
             id: this.editingId,
-            ...this.editForm,
+            ...updatedCountry,
             });
             runInAction(() => {
             this.countries = this.countries.map((c) =>
